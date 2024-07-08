@@ -40,7 +40,7 @@ IntelliJ should compile and build the code for you.
 Run "airplane.sim.GameEngine.main()" and you should see the simulator UI launch. 
 You can configure:
 * the Java class to use for your ATC strategy
-* the configuration file indicating each plane’s initial location, destination, and departure time
+* the configuration file indicating each plane’s initial location, destination, and departure time (described below)
 * the delay of refreshing the UI
 
 To run a simulation:
@@ -68,7 +68,7 @@ To determine the bearing needed to get from point A to point B, you can call the
 
 Your player may also run simulations within the simulation, e.g. to determine whether planes will collide or how close they may get to each other before actually committing to those moves. 
 At any point in your player’s execution, it may call the **startSimulation** method. 
-This will repeatedly call your player’s *simulateUpdate* method and then update the simulated planes accordingly. 
+This will repeatedly call your player’s **simulateUpdate** method and then update the simulated planes accordingly. 
 You may terminate the simulation at any point by calling **stopSimulation** 
 Otherwise, the simulation will run until all planes have reached their destinations, at which point startSimulation will finish. 
 The return value of startSimulation is a SimulationResult object that indicates the time at which the simulation stopped, the reason for stopping, and the List of Planes at the point when the simulation finished.
@@ -77,3 +77,22 @@ To add your Player to the application, add the name of your class to **airplane.
 
 Note: To do logging/debugging, do _not_ use System.out.println or System.err.println. 
 Rather, create a Logger instance (see SerializedPlayer for an example) and then call its trace, debug, info, warn, or error method and pass the String to appear in the console.
+
+# Configuration Files
+The "flights" directory of the IntelliJ project contains configuration files for different situations that your ATC strategy should be able to address.
+
+Each line of the configuration file contains three semicolon-separated fields, each describing an individual flight:
+* the x- and y-coordinates of the initial location (origin)
+* the x- and y-coordinates of the destination
+* the departure time; the flight is not allowed to leave the origin before this time
+
+We will begin by using these configurations for our initial evaluation of strategies (probably in this order):
+* Simple.txt: a single flight
+* Parallel.txt: two flights that travel parallel to each other, thus have no chance of collision
+* Double.txt: two flights that travel directly toward each other
+* Cross.txt: two flights whose paths cross
+* Three.txt: three flights all heading to the same destination
+* Four.txt: four flights all heading to the same destination
+* 
+
+More configurations will be added as we progress through this project, and you are welcome and encouraged to create your own if you think of interesting configurations or situations that your strategy is particularly adept at handling.
