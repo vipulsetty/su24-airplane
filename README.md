@@ -93,6 +93,5 @@ We will begin by using these configurations for our initial evaluation of strate
 * Cross.txt: two flights whose paths cross
 * Three.txt: three flights all heading to the same destination
 * Four.txt: four flights all heading to the same destination
-* 
 
 More configurations will be added as we progress through this project, and you are welcome and encouraged to create your own if you think of interesting configurations or situations that your strategy is particularly adept at handling.
