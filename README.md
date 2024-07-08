@@ -57,6 +57,7 @@ Create a class called airplane.gX.GroupXPlayer where _X_ is your group number.
 This class must:
 * extend airplane.sim.Player
 * implement the getName, startNewGame, and updatePlanes methods
+
 See airplane.g0.SerializedPlayer for an example.
   
 The **startNewGame** method is called at the beginning of the simulation, and provides a List of Plane objects, which include the current location (which, at this point, is its origin), destination, current bearing (which will be -1 since it’s on the ground) and departure time of each flight.
