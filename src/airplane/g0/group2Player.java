@@ -36,6 +36,8 @@ public class group2Player extends Player {
             }
         }
 
+        if (planes.size()==1){return bearings;}
+
         SimulationResult simulation = this.startSimulation(planes,round);
         logger.info(simulation.getReason());
 

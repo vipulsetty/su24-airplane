@@ -33,6 +33,8 @@ public class newPlayer extends Player {
             }
         }
 
+        if (planes.size()==1){return bearings;}
+
         if(distance(planes.get(0),planes.get(1))<15 ){
             bearings[0]+=10;
             bearings[1]+=10;
