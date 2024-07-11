@@ -53,7 +53,8 @@ public class player4 extends Player {
             if(simulation.getReason()!=4){
                 double originalBearing = bearings[i];
                 double newBearing=calculateBearing(planes.get(i).getLocation(), planes.get(i).getDestination());
-                if(Math.abs(newBearing-planes.get(i).getBearing())>180 && planes.get(i).getLocation().distance(planes.get(i).getDestination())<=10){
+                //if(Math.abs(newBearing-planes.get(i).getBearing())>180 && planes.get(i).getLocation().distance(planes.get(i).getDestination())<=10){
+                if(Math.abs(newBearing-planes.get(i).getBearing()) / planes.get(i).getLocation().distance(planes.get(i).getDestination()) >13){
                     continue;
                 }
                 if (Math.abs(newBearing-planes.get(i).getBearing())>10){
