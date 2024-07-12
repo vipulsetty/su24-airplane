@@ -36,6 +36,9 @@ public class group2Player extends Player {
             }
         }
 
+        // check if planes are heading in same direction
+        ArrayList<ArrayList<Plane>> planeDestinationGroups = new ArrayList<>();
+
         if (planes.size()==1){return bearings;}
 
         SimulationResult simulation = this.startSimulation(planes,round);
@@ -100,5 +103,6 @@ public class group2Player extends Player {
         // not implemented
         return bearings;
     }
+
 
 }

@@ -65,6 +65,9 @@ public class Plane extends GameObject {
 	public int getDepartureTime(){
 		return this.departureTime;
 	}
+	public void setDepartureTime(int departureTime) {
+		this.departureTime = departureTime;
+	}
 		
 	public Point2D.Double getDestination() {
 		return new Point2D.Double(this.destinationX, this.destinationY);
