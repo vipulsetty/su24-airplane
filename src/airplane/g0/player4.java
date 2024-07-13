@@ -27,6 +27,8 @@ public class player4 extends Player {
             priority = new boolean[planes.size()];
             priority[priority.length-1] = true;
         }
+
+        loop:
         for (int i=0;i<planes.size();i++){
             if(round>=planes.get(i).getDepartureTime()){
                 Plane curPlane=planes.get(i);
@@ -41,11 +43,12 @@ public class player4 extends Player {
 
         mainloop:
         for (int i=0;i<planes.size();i++){
-            if(planes.get(i).getBearing()==-2){
+            if(planes.get(i).getBearing()==-2 || planes.get(i).getBearing()==-1){
                 continue;
             }
 
             SimulationResult simulation = this.startSimulation(planes,round);
+            logger.info(simulation.getReason());
             if(simulation.getReason()==4 ){
                 bearings[i]=(bearings[i]+10) % 360;
                 planes.get(i).setBearing(bearings[i]);
